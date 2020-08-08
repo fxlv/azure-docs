@@ -160,7 +160,7 @@ client = SecretClient(vault_url=KVUri, credential=credential)
 secretName = "mySecret"
 
 print("Input the value of your secret > ")
-secretValue = raw_input()
+secretValue = input()
 
 print(f"Creating a secret in {keyVaultName} called '{secretName}' with the value '{secretValue}` ...")
 
@@ -179,7 +179,7 @@ retrieved_secret = client.get_secret(secretName)
 print(f"Your secret is '{retrieved_secret.value}'.")
 print(f"Deleting your secret from {keyVaultName} ...")
 
-client.delete_secret(secretName)
+client.begin_delete_secret(secretName)
 
 print(" done.")
 ```
